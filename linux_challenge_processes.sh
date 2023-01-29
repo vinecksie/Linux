@@ -6,3 +6,8 @@ pgrep bash
 
 #Challenge 2
 ps aux --sort=-%mem > processes.txt
+
+#Challenge #3
+top
+P
+space
