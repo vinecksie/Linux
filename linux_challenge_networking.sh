@@ -35,8 +35,17 @@ systemclt status ssh
 ssh ***@***.***.***.***
 
 #Challenge 8
+cp /etc/ssh/sshd_config ˜/BKP/sshd_configbkp
+vim /etc/ssh/sshd_config
+#Port 2266
+#AllowUsers vince
+#PermitRootLogin no
 
 #Challenge 9
+mkdir ~/challenge9
+touch ~/challenge9/ch9file
+scp -r -P 2266 ~/challenge9 vince@***.***.***.***:/home/vince
+tree /home/vince
 
 #Challenge 10
 
