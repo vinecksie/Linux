@@ -48,5 +48,9 @@ scp -r -P 2266 ~/challenge9 vince@***.***.***.***:/home/vince
 tree /home/vince
 
 #Challenge 10
+mkdir ~/challenge10
+touch ~/challenge10/ch10file
+rsync -av -e ssh -r -P 2266 ~/challenge9 vince@***.***.***.***:/home/vince
+tree /home/vince
 
 #Challenge 11
