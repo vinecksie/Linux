@@ -54,3 +54,5 @@ rsync -av -e ssh -r -P 2266 ~/challenge9 vince@***.***.***.***:/home/vince
 tree /home/vince
 
 #Challenge 11
+sudo rsync -av --exclude='*.png' --exclude='test.pdf' my_project/ backup/
+sudo rsync -av -e ssh --delete /etc/ student@***.***.***.***:~/etc-centos/
