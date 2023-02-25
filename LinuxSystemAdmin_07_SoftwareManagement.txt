@@ -1,0 +1,64 @@
+A ... is a package that contains an executable as opposed to ...	binary package source code
+.. is the installation package format user by all debian based distributions	deb
+a ... is an archive that contains other files including the executable application that was already compiled	distribution
+... provides the low level infrastructure for package management	dpkg
+the ... provides the list of current packages installed on the system	pdkg database
+"dpkg can work with ... and does not about ... and ... compared to 'apt'"	local deb files repositories package dependencies
+"'apt' will call ... behind the scenes"	dpkg
+list informations about the chrome.deb file	dpkg --info chrome.deb
+install the chrome.deb package	sudo dpkg -i chrome.deb
+get a list of all installed deb packages	dpkg --get-selections
+get a list of all installed deb package with the version, architecture and description	dpkg-query -l
+when you use dpkg-query -l, what means the 2 letters at the beginnin of each line ?	desired state (i > install) package status (i > installed)
+find the exact name of the dev package chrome installed	dpkg-query -l | grep chrome
+list all the files contained in the deb package chrome (2 steps)	dpkg-query -l | grep chrome (to find the exact name of the package) dpkg -L exactnameofthepackage
+suppose you found a corrupted file and you need to reinstall the package that this file belong. how to retrieve this package ? (2 steps) give example with ls command	which -a find ls (result /bin/ls) dpkg -S /bin/ls (result coreutils: /bin/ls > coreutils is the nanme of the package)
+how remove an installed package by preserving the configuration file	sudo dpkg -r exactnameofthepackage
+how remove an installed package and deleting the configuration file (2 ways)	dpkg -P exactnameofthepackage dpkg --purge exactnameofthepackage
+the recommended way to manage Debian ans Ubuntu package is the ... tool	apt
+In the newest version of Ubuntu, ... and ... were merger in ...	apt-get apt-cache apt
+"unlike dpkg, ... doesn't understand ... files"	apt deb
+an APT repository is an ... which contains a collection of ... with ... that is readable by the apt tool	web server packages with metadata
+... are a special kind of repository hosted on servers (... is an example)	PPAs Launchpad
+PPAs stands for ...	Personal Package Archive
+apt uses a ... or a ... that ... of available packages from the repositories enabled in the system	index local database hold records
+update the packages index of apt	sudo apt update
+it is recommended to update apt packages index by running ... before each time before .... or ... new packages	apt update installing upgrading
+".... command doesn't install or update any applications. it just update an ..."	apt update command index
+install a new program	apt install programname
+install the deb fil chrome located in download of user vbox with apt	apt install /home/vbox/Downloads/chrome.deb
+get a list of all packages that can be upgraded	apt list --upgradable
+upgrade the entire system	apt full-upgrade
+run upgrade entire system in a shell script	sudo apt full-upgrade -y
+remove an installed package	apt remove packagename
+uninstall the apache2 package and its configuration files	sudo apt purge apache2
+"when you remove or purge a package, the ... won't be removed automatically"	dependencies
+remove all unneeded dependencies	sudo apt autoremove
+by default ubuntu keep all ... in a cache directory on the disk	packages that has been downloaded and installed
+list elements of cache directory of apt	ls -l /var/cache/apt/archives/
+check size of apt cache directory	du -sh /var/cache/apt/archives/
+clear the cache repo of apt	sudo apt clean
+list all availlable packages	apt list
+show the number of available packages	apt list | wc -l
+"find all packages containing ""transparent proxy"" in the name"	"apt search ""transparent proxy"""
+list all installed packages	apt list --installed
+number of packages installed	apt list --installed | wc -l
+show informations on a package	apt show packagename
+... or ... are graphical package managers	aptitude synaptic
+3 advantages of source compilation	able to setup more default features compared to package manager access to the latest version of an app possibly to have multiples versions of the same app
+3 disadvantage of source compilation	package manager is not aware about app installed in this way, so unable to update or install via possibly break the system if we are not carefully with the installation not the easiest way
+gcc stands for ...	gnu compiler collection
+... is a utility tool to build a collection of file and transform them into a final product	make
+compile a hello.c file	gcc hello.c -o hello
+calculate the md5 hash of the file test.tar.gz	md5sum test.tar.gz
+always use ... option to compile a program in order to avoid to overwrite existing file and so break the system	prefix
+when you extract a program to compile, you will have ... containing the source code and .. checking if you have all needed packages in order to perform the compilation.	/src /configure
+it is recommended to install compiled programs in ...	/opt
+/opt comes from ...	optional software
+launch the configure process of proftpd program to compile it with the minimal option	./configure --prefix=/opt/proftpd
+make do the true compilation by invoking the ... multiples times	gnu compiler
+to compil a program, make will use .... this file was generating by the previous ... step	makefile configure
+if you encounter some error with make, try to ... and run again make	make clean
+if you compile a program, only the final step ... has to be run as root	make install
+... will create the directory where the software will be installed and will move all the ... there	make install compiled files
+install proftpd in only one line of command	./configure --prefix=/opt/proftpd && make && sudo make install
