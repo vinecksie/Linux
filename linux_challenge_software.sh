@@ -7,3 +7,4 @@ apt install /home/vbox/Downloads/google-earth-stable_current_amd64.deb
 #Challenge2
 dpkg-query -l
 dpkg -P google-earth-pro-stable
+sudo apt install ./google-earth-stable_current_amd64.deb
