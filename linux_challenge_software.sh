@@ -12,3 +12,5 @@ sudo apt install ./google-earth-stable_current_amd64.deb
 #Challenge3
 dpkg database
 dpkg-query -l
+which ls
+dpkg -S /usr/bin/ls
