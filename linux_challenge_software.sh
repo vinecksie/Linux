@@ -14,3 +14,4 @@ dpkg database
 dpkg-query -l
 which ls
 dpkg -S /usr/bin/ls
+dpkg-query -l ls | dpkg -L
